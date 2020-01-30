@@ -17,5 +17,8 @@ $EM_CONF[$_EXTKEY] = [
             'templavoilaplus' => '7.1.3-7.99.99',
             'yoast_seo' => '1.1.0-5.99.99',
         ],
+        'conflicts' => [
+            'ppi_templavoilaplus_yoast' => ''
+        ],
     ],
 ];
