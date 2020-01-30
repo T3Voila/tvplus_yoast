@@ -1,0 +1,38 @@
+{
+    "name": "extrameile/em_tvplus_yoast",
+    "type": "typo3-cms-extension",
+    "description": "Integration of TYPO3 Yoast SEO extension into TemplaVoilà! Plus page layout module.",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "TemplaVoila",
+        "TemplaVoilaPlus",
+        "yoast"
+    ],
+    "homepage": "https://templavoila.plus/",
+    "license": ["GPL-2.0+"],
+    "authors": [
+        {
+            "name": "Alexander Opitz",
+            "email": "opitz@extrameile-gehen.de",
+            "homepage": "http://www.extrameile-gehen.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^7.6.0 || ^8.7.0 || ^9.5.0",
+        "yoast-seo-for-typo3/yoast_seo": ">=1.1.0 <5.99.99",
+        "templavoilaplus/templavoilaplus": ">=7.1.2 <7.99.99",
+        "php": ">=5.5.0 <7.4.99"
+    },
+    "autoload": {
+        "psr-4": {
+            "Extrameile\\EmTvplusYoast\\": "Classes/"
+        }
+    },
+    "replace": {
+        "ppi_templavoilaplus_yoast": "self.version",
+        "typo3-ter/ppi_templavoilaplus_yoast": "self.version"
+    }
+}
+
