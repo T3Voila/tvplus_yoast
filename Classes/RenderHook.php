@@ -24,6 +24,7 @@ class RenderHook
         $GLOBALS['SOBE'] = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Controller\PageLayoutController::class);
         $GLOBALS['SOBE']->id = $parentObject->id;
         $GLOBALS['SOBE']->current_sys_language = $parentObject->currentLanguageUid;
+        $this->getBackendUserAuthentication()->pushModuleData('web_layout', ['language' => $parentObject->currentLanguageUid], 1);
 
         /** @var \YoastSeoForTypo3\YoastSeo\Backend\PageLayoutHeader $yoast */
         $yoast = GeneralUtility::makeInstance(\YoastSeoForTypo3\YoastSeo\Backend\PageLayoutHeader::class);
@@ -45,5 +46,13 @@ class RenderHook
         $output = \str_replace($returnUrlFalse, $returnUrlTemplaVoila, $output);
 
         return $output;
+    }
+
+    /*
+     * @return BackendUserAuthentication
+     */
+    protected static function getBackendUserAuthentication()
+    {
+        return $GLOBALS['BE_USER'] ?? null;
     }
 }
