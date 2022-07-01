@@ -8,17 +8,14 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'clearCacheOnLoad' => 0,
     'author' => 'Alexander Opitz',
-    'author_email' => 'opitz@extrameile-gehen.de',
-    'author_company' => 'Extrameile GmbH',
+    'author_email' => 'opitz.alexander@googlemail.com',
+    'author_company' => 'T3Voila Team',
     'constraints' => [
         'depends' => [
-            'php' => '5.5.0-7.4.99',
-            'typo3' => '7.6.0-9.5.99',
-            'templavoilaplus' => '7.1.3-7.99.99',
-            'yoast_seo' => '1.1.0-5.99.99',
-        ],
-        'conflicts' => [
-            'ppi_templavoilaplus_yoast' => ''
+            'php' => '7.2.0-8.1.99',
+            'typo3' => '9.5.0-11.5.99',
+            'templavoilaplus' => '8.1.0-8.2.99',
+            'yoast_seo' => '7.2.3-8.99.99',
         ],
     ],
 ];
