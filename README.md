@@ -1,8 +1,9 @@
-TemplaVoilà! Plus - Yoast SEO
-=============================
-
 [![license](https://img.shields.io/github/license/T3Voila/tvplus_yoast.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0-standalone.html)
 [![version](https://img.shields.io/badge/TER_version-1.0.0-green.svg)](https://extensions.typo3.org/extension/t3voila_tvplus_yoast)
+
+# TemplaVoilà! Plus for Yoast SEO
+
+<img alt="ICON" align="right" width="256" height="256" src="/Resources/Public/Icons/Extension.svg">
 
 This TYPO3 extension integrates the Yoast SEO Extension into the page layout module of TemplaVoilà! Plus.
 Compatible to TYPO3 v9/v10/v11 LTS and yoast_seo 7.2.3-8.x.x.

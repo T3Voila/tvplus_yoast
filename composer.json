@@ -1,7 +1,7 @@
 {
     "name": "t3voila/tvplus_yoast",
     "type": "typo3-cms-extension",
-    "description": "Integration of TYPO3 Yoast SEO extension into TemplaVoilà! Plus page layout module.",
+    "description": "Integration of TYPO3 Yoast SEO extension into TemplaVoilà! Plus PageLayout Module.",
     "keywords": [
         "TYPO3",
         "extension",
