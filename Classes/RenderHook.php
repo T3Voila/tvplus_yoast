@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Extrameile\EmTvplusYoast;
+namespace T3voila\TvplusYoast;
 
-use Ppi\TemplaVoilaPlus\Controller\BackendLayoutController;
+use Tvp\TemplaVoilaPlus\Controller\Backend\PageLayoutController;
+use TYPO3\CMS\Backend\Controller\PageLayoutController as CorePageLayoutController;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -18,32 +19,21 @@ class RenderHook
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @return string
      */
-    public function renderHeaderFunctionHook(array $params, BackendLayoutController $parentObject)
+    public function renderHeaderFunctionHook(array $params, PageLayoutController $parentObject)
     {
-        /** @var \TYPO3\CMS\Backend\Controller\PageLayoutController $pageLayoutController */
-        $GLOBALS['SOBE'] = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Controller\PageLayoutController::class);
-        $GLOBALS['SOBE']->id = $parentObject->id;
-        $GLOBALS['SOBE']->current_sys_language = $parentObject->currentLanguageUid;
-        $this->getBackendUserAuthentication()->pushModuleData('web_layout', ['language' => $parentObject->currentLanguageUid], 1);
+        /** @var CorePageLayoutController $pageLayoutController */
+        $pageLayout = GeneralUtility::makeInstance(CorePageLayoutController::class);
+        $pageLayout->id = $parentObject->getCurrentPageUid();
+        $pageLayout->pageinfo = $parentObject->getCurrentPageInfo();
+        $pageLayout->MOD_SETTINGS = [
+            'function' => 1,
+            'language' => $parentObject->getCurrentLanguageUid(),
+        ];
+        $this->getBackendUserAuthentication()->pushModuleData('web_layout', ['language' => $parentObject->getCurrentLanguageUid()], 1);
 
         /** @var \YoastSeoForTypo3\YoastSeo\Backend\PageLayoutHeader $yoast */
         $yoast = GeneralUtility::makeInstance(\YoastSeoForTypo3\YoastSeo\Backend\PageLayoutHeader::class);
-        $output = $yoast->render();
-
-        $returnUrlFalse = BackendUtility::getModuleUrl(
-            'web_layout',
-            ['id' => (int)$parentObject->id]
-        );
-
-        $returnUrlTemplaVoila = BackendUtility::getModuleUrl(
-            'web_txtemplavoilaplusLayout',
-            ['id' => (int)$parentObject->id]
-        );
-
-        $returnUrlFalse = \rawurlencode($returnUrlFalse);
-        $returnUrlTemplaVoila = \rawurlencode($returnUrlTemplaVoila);
-
-        $output = \str_replace($returnUrlFalse, $returnUrlTemplaVoila, $output);
+        $output = $yoast->render([], $pageLayout);
 
         return $output;
     }
