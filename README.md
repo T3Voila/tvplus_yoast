@@ -5,6 +5,9 @@
 
 <img alt="ICON" align="right" width="256" height="256" src="/Resources/Public/Icons/Extension.svg">
 
+> [!IMPORTANT]
+> **With TYPO3 v12 and TV+ v12 this extension is obsolate and not needed anymor.**
+
 This TYPO3 extension integrates the Yoast SEO Extension into the page layout module of TemplaVoilà! Plus.
 Compatible to TYPO3 v9/v10/v11 LTS and yoast_seo 7.2.3-8.x.x.
 
